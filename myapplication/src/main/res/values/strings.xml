@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="title_activity_swipe_refresh">abc</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_test">abc</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_main3">Main3Activity</string>
+    <string name="title_activity_main4">顶替</string>
+    <string name="title_activity_main5">Main5Activity</string>
+    <string name="title_activity_abc">第三方</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="action_settings">Settings</string>
+</resources>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<body>
+<!--<iframe src="myapp://data/123" style="display:none"></iframe>-->
+<!--<a href="myapp://data/123">aa</a>-->
+<a href="javascript:js_method();">bb</a>
+</body>
+</html>
+<script>
+function js_method()
+{
+
+
+var openUrl = window.location.search;
+
+try{
+
+openUrl = openUrl.substring(1,openUrl.length);
+
+}catch(e){
+
+
+}
+
+var isiOS = navigator.userAgent.match('iPad')
+
+|| navigator.userAgent.match('iPhone')
+
+|| navigator.userAgent.match('iPod'), isAndroid = navigator.userAgent
+
+.match('Android'),isDesktop = !isiOS&&!isAndroid;
+
+if (isiOS) {
+
+setTimeout(function () { window.location = "itms-apps://itunes.apple.com/app/[name]/[id]?mt=8"; },25);
+
+window.location = "[scheme]://[host]?url="+openUrl;
+
+}else if(isAndroid){
+
+window.location = "myapp://[host]/"+"url="+openUrl+"#Intent;scheme=[scheme];package=[package_name];end";
+
+}else{
+
+window.location.href = openUrl;
+
+}
+
+}
+
+</script>

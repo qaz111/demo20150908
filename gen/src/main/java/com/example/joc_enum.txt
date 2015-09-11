@@ -1,0 +1,530 @@
+   // 1、用户登陆 
+    @SubCmd(0x11)
+    enum yonghudenglu {
+		Mileage,		//  本月里程 (double)
+		OilBills,		//  本月油费 (double)
+		CarbonEmissions,		//  本月碳排量 (double)
+		KMOilWear,		//  百里油耗 (double)
+		TimeInterval,		//  本月驾驶时间 (string)
+		Level,		//  驾驶评分1-5，每个级别代表一颗星 (int)
+		DrivingOffences,		//  违章提醒0没有违章，1有违章 (int)
+		Maintenance,		//  上次保养0:请及时保养1:请进行保养大于1:xxxxkm需保养 (int)
+		EndTime,		//  保险到期：日期，表示最近的保险到期日 (string)
+		Longitude,		//  经度 (float)
+		Latitude,		//  纬度 (float)
+		IsClosed,		//  报警是否启动0未启动，1已启动 (int)
+		Detection,		//  爱车体检状态：0不显示1显示绿点，2显示黄点 (int)
+		Name,		//  车主姓名 (string)
+		Mobile,		//  手机号码 (string)
+		SecurePassword,		//  安全密码 (string)
+		Sex,		//  车主性别 (string)
+		Url,		//  车主头像 (string)
+		Terminalid,		//  终端ID (string)
+		VehicleId,		//  车辆GUID (string)
+		Position,		//  车辆位置 (string)
+		DetectionPerion,		//  体检时间 (string)
+		TheNumber,		//  车牌号码 (string)
+		ThePhone,		//  4s店电话 (string)
+		UserRoot,		//  用户权限1已经绑定设备0未绑定设备 (int)
+		UserCid,		//  注册CID (string)
+    }
+
+   // 2、用户登陆密码修改 
+    @SubCmd(0x12)
+    enum yonghudenglumimaxiugai {
+    }
+
+   // 3、用户注册获取验证码 
+    @SubCmd(0x13)
+    enum yonghuzhucehuoquyanzhengma {
+    }
+
+   // 4、用户注册 
+    @SubCmd(0x14)
+    enum yonghuzhuce {
+    }
+
+   // 5、用户安全密码修改 
+    @SubCmd(0x15)
+    enum yonghuanquanmimaxiugai {
+    }
+
+   // 6、用户头像设置 
+    @SubCmd(0x16)
+    enum yonghutouxiangshezhi {
+		Url,		//   ()
+    }
+
+   // 7、驾驶证信息查询 
+    @SubCmd(0x17)
+    enum jiashizhengxinxichaxun {
+		Name,		//  驾驶员 (string)
+		License,		//  驾驶证号 (string)
+		Kind,		//  驾驶证种类 (string)
+		City,		//  所属城市 (string)
+		ReceiveDate,		//  初领证日 (string)
+		StartDate,		//  起始日期 (string)
+		PeriodOfValidity,		//  有效期1：6年2：10年3：长期 (string)
+		ExpireDate,		//  到期日期 (string)
+		CityId,		//  所属城市ID (string)
+		Code,		//  驾驶证种类ID (string)
+    }
+
+   // 8、车主默认车辆设置 
+    @SubCmd(0x18)
+    enum chezhumorencheliangshezhi {
+    }
+
+   // 9、驾驶证信息修改[暂时不用] 
+    @SubCmd(0x19)
+    enum jiashizhengxinxixiugai {
+    }
+
+   // 10、驾驶证信息录入 
+    @SubCmd(0x20)
+    enum jiashizhengxinxiluru {
+    }
+
+   // 11、车主账号查询 
+    @SubCmd(0x21)
+    enum chezhuzhanghaochaxun {
+		Path,		//  车主头像 (string)
+		Name,		//  车主姓名 (string)
+		Account,		//  登陆账号 (string)
+		Mobile,		//  手机号码 (string)
+		Sex,		//  车主性别0男1女 (int)
+		Birthday,		//  车主生日 (string)
+    }
+
+   // 12、车主基础信息修改 
+    @SubCmd(0x22)
+    enum chezhujichuxinxixiugai {
+    }
+
+   // 13、车主手机号码修改 
+    @SubCmd(0x23)
+    enum chezhushoujihaomaxiugai {
+    }
+
+   // 14、车主操作记录[未完成] 
+    @SubCmd(0x24)
+    enum chezhucaozuojilu {
+    }
+
+   // 15、退出登陆 
+    @SubCmd(0x25)
+    enum tuichudenglu {
+    }
+
+   // 16、数据刷新 
+    @SubCmd(0x26)
+    enum shujushuaxin {
+		Mileage,		//  本月里程 (float)
+		OilBills,		//  本月油费 (float)
+		CarbonEmissions,		//  本月碳排量 (float)
+		KMOilWear,		//  百里油耗 (float)
+		TimeInterval,		//  本月驾驶时间 (int)
+		Level,		//  驾驶评分1-5，每个级别代表一颗星 (int)
+		DrivingOffences,		//  违章提醒0没有违章，1有违章 (int)
+		Maintenance,		//  上次保养表示距离下次保养还有多少天 (int)
+		EndTime,		//  保险到期保险到期：日期，表示最近的保险到期日 (int)
+		Longitude,		//  经度 (float)
+		Latitude,		//  纬度 (float)
+		IsClosed,		//  报警是否启动0未启动，1已启动 (int)
+		Detection,		//  车体检状态爱车体检状态：0不显示1显示绿点，2显示黄点 (int)
+		Name,		//  车主姓名 (string)
+		Mobile,		//  手机号码 (string)
+		SecurePassword,		//  安全密码 (string)
+		Sex,		//  车主性别 (string)
+		Url,		//  车主头像 (string)
+		VehicleId,		//  车辆GUID (string)
+		Position,		//  车辆位置 (string)
+		DetectionPerion,		//  体检时间 (string)
+		TheNumber,		//  车牌号码 (string)
+		ThePhone,		//  4s店电话 (string)
+		UserRoot,		//  用户权限1已经绑定设备0未绑定设备 (int)
+		UserCid,		//  注册CID (string)
+    }
+
+   // 17、找回密码 
+    @SubCmd(0x27)
+    enum zhaohuimima {
+		UserID,		//  终端ID (string)
+    }
+
+   // 18、重置登陆密码 
+    @SubCmd(0x28)
+    enum zhongzhidenglumima {
+    }
+
+   // 19、试用账号注册（无设备） 
+    @SubCmd(0x29)
+    enum shiyongzhanghaozhucewushebei {
+    }
+
+   // 20、车主优惠  [未改完] 
+    @SubCmd(0x2A)
+    enum chezhuyouhui {
+		ID,		//  活动ID (string)
+		Name,		//  活动名称 (string)
+		OriginalPrice,		//  原来价格 (float)
+		PreferentialPrice,		//  优惠价格 (float)
+		Number,		//  数量 (int)
+		Url,		//  图片地址如果有多张图片用逗号区分（如：首页图片，详细列表图片） (string)
+		ExpireDate,		//  过期时间 (string)
+		Description,		//  描述信息 (string)
+		Phone,		//  预定电话 (string)
+		Total,		//  总页数 (int)
+    }
+
+   // 21、活动抢购  [未完成] 
+    @SubCmd(0x2B)
+    enum huodongqianggou {
+    }
+
+   // 22、抢购记录 
+    @SubCmd(0x2C)
+    enum qianggoujilu {
+		strId,		//  记录ID (sting)
+		strName,		//  活动名称 ()
+		strOldPrice,		//  原来价格 ()
+		strNewPrice,		//  优惠价格 ()
+		strNum,		//  数量 ()
+		strPicture,		//  图片地址如果有多张图片用逗号区分（如：首页图片，详细列表图片） ()
+		strTime,		//  过期时间 ()
+		strContent,		//  描述信息 ()
+		strState,		//  是否消费0没有消费1已经消费2已经过期 ()
+		strCount,		//  总页数 ()
+		子功能号范围：0x31—0x4F,		//   ()
+    }
+
+   // 1、车辆注册 
+    @SubCmd(0x31)
+    enum cheliangzhuce {
+		strVehilceID,		//  车辆ID (sting)
+    }
+
+   // 2、车辆档案查询 
+    @SubCmd(0x32)
+    enum cheliangdanganchaxun {
+		strLicenseNumber,		//  车牌号 (sting)
+		strType,		//  车型 ()
+		strFrameNumber,		//  车架号码 ()
+		strEngineNumber,		//  发动机号 ()
+		strRegistrationTime,		//  注册日期 ()
+		strNextInspection,		//  下次年检 ()
+		strTypeId,		//  车型ID ()
+		strEqupmentId,		//  设备ID ()
+    }
+
+   // 3、车辆详情 
+    @SubCmd(0x33)
+    enum cheliangxiangqing {
+		strGasolineLabel,		//  燃油标号 (sting)
+		strAutomobileEmissions,		//  汽车排量 ()
+		strGearbox,		//  变速箱 ()
+		strVehilceColor,		//  车身颜色 ()
+    }
+
+   // 4、电子保单录入 
+    @SubCmd(0x34)
+    enum dianzibaodanluru {
+    }
+
+   // 5、电子保单查询 
+    @SubCmd(0x35)
+    enum dianzibaodanchaxun {
+		ThePolicyNumber,		//  保单编号 (sting)
+		StrInsuranceCompany,		//  保险公司 ()
+		StrInsuranceName,		//  保险名称 ()
+		StrTheInsured,		//  被保人 ()
+		StrEffectiveDate,		//  生效日期 ()
+		StrTimeMaturity,		//  到期时间 ()
+		StrContentsInsured,		//  投保内容 ()
+		StrCustomerTelephone,		//  客户电话 ()
+		StrCompId,		//  保险公司ID ()
+		StrInsurId,		//  保险险种ID ()
+		StrBDid,		//  电子保单ID ()
+    }
+
+   // 6、油价设置 
+    @SubCmd(0x36)
+    enum youjiashezhi {
+    }
+
+   // 7、油价查询 
+    @SubCmd(0x37)
+    enum youjiachaxun {
+		strPrice,		//  油价 ()
+		strNumber,		//  车牌号 ()
+		strlabel,		//  燃油标号 ()
+    }
+
+   // 8、车辆位置查询 
+    @SubCmd(0x39)
+    enum cheliangweizhichaxun {
+		strLongitude,		//  经度 (sting)
+		strLatitude,		//  纬度 (sting)
+		strThePos,		//  车辆位置 (sting)
+    }
+
+   // 9、车辆档案修改 
+    @SubCmd(0x3A)
+    enum cheliangdanganxiugai {
+    }
+
+   // 10、车辆夜防设置 
+    @SubCmd(0x3B)
+    enum cheliangyefangshezhi {
+    }
+
+   // 11、隐私设置 
+    @SubCmd(0x3C)
+    enum yinsishezhi {
+    }
+
+   // 12、汽车安全云检测设置 
+    @SubCmd(0x3D)
+    enum qicheanquanyunjianceshezhi {
+    }
+
+   // 13、车辆夜防设置查询 
+    @SubCmd(0x3E)
+    enum cheliangyefangshezhichaxun {
+		strVstatus,		//  0代表关闭，1代表打开车辆夜间自动设防状态 (sting)
+		strTstatus,		//  0代表关闭，1代表打开设定时间是否启用 (sting)
+		strStime,		//  开始时间 (sting)
+		strEtime,		//  结束时间 (sting)
+    }
+
+   // 14、隐私设置查询 
+    @SubCmd(0x3F)
+    enum yinsishezhichaxun {
+		strContent,		//  0代表关闭，1代表打开开启GPS状态 (string)
+    }
+
+   // 15、汽车安全云检测设置查询 
+    @SubCmd(0x40)
+    enum qicheanquanyunjianceshezhichaxun {
+		strFstatus,		//  0代表关闭，1代表打开发动机故障检测状态 (string)
+		strVstatus,		//  0代表关闭，1代表打开驾驶行为检测状态 ()
+		strYstatus,		//  0代表关闭，1代表打开夜间自动设防状态 ()
+    }
+
+   // 16、车型列表获取 
+    @SubCmd(0x41)
+    enum chexingliebiaohuoqu {
+		strId,		//  String类型ID ()
+		strName,		//  名称 ()
+		strPath,		//  路径 ()
+		strFalg,		//  类型名称别名 ()
+    }
+
+   // 17、我的车辆 
+    @SubCmd(0x42)
+    enum wodecheliang {
+		VehicleId,		//  String车辆ID ()
+		strLicenseNumber,		//  完整车牌号码 ()
+		strCity,		//  车牌号码简称 ()
+		strNumber,		//  车牌号码 ()
+		strFrameNumber,		//  车架号 ()
+		strEngineNumber,		//  发动机号 ()
+		strVehicleBrand,		//  车辆品牌 ()
+		strCertificateNumber,		//  证书编号 ()
+		nState,		//  车辆标识是否为默认车辆0是默认车辆1不是 ()
+    }
+
+   // 18、获取设置信息 
+    @SubCmd(0x43)
+    enum huoqushezhixinxi {
+		strLicenseNumber,		//  车牌号 ()
+		strLicenseExpires,		//  驾驶证到期时间 ()
+		strElectronicState,		//  电子保单到期时间 ()
+		strOilPrices,		//  油价 ()
+    }
+
+   // 19、城市列表获取 
+    @SubCmd(0x44)
+    enum chengshiliebiaohuoqu {
+		strId,		//  城市ID ()
+		strName,		//  城市名称 ()
+    }
+
+   // 20、驾照类型列表获取 
+    @SubCmd(0x45)
+    enum jiazhaoleixingliebiaohuoqu {
+		strId,		//  ID (string)
+		strName,		//  名称 ()
+    }
+
+   // 21、保险公司列表获取 
+    @SubCmd(0x46)
+    enum baoxiangongsiliebiaohuoqu {
+		ID,		//  ID (string)
+		Name,		//  保险公司名称 (string)
+		Telephone,		//  保险公司电话 (string)
+    }
+
+   // 22、保险种类列表获取 
+    @SubCmd(0x47)
+    enum baoxianzhongleiliebiaohuoqu {
+		ID,		//  ID (string)
+		Name,		//  保险公司名称 (string)
+    }
+
+   // 23、电子保单删除 
+    @SubCmd(0x48)
+    enum dianzibaodanshanchu {
+    }
+
+   // 24、夜防设置 
+    @SubCmd(0x49)
+    enum yefangshezhi {
+    }
+
+   // 26、保养提醒 
+    @SubCmd(0x4A)
+    enum baoyangtixing {
+		Total,		//  当前里程 (string)
+		Mileage1,		//  过往保养期 (string)
+		Mileage2,		//  近期保养期 (string)
+		Mileage3,		//  将来保养期 (string)
+		Phone,		//  预约电话 (string)
+    }
+
+   // 27、里程校正 
+    @SubCmd(0x4B)
+    enum lichengxiaozheng {
+    }
+
+   // 28、车辆删除 
+    @SubCmd(0x4C)
+    enum cheliangshanchu {
+    }
+
+   // 29、车辆位置 
+    @SubCmd(0x4D)
+    enum cheliangweizhi {
+		LocationTime,		//  定位时间 (string)
+		address,		//  定位地址 (string)
+		子功能号范围：0x51—0x5F,		//   ()
+    }
+
+   // 1、用户设备注册 
+    @SubCmd(0x51)
+    enum yonghushebeizhuce {
+    }
+
+   // 2、设备解绑 
+    @SubCmd(0x52)
+    enum shebeijiebang {
+    }
+
+   // 1、车辆行程获取 
+    @SubCmd(0x61)
+    enum cheliangxingchenghuoqu {
+		ID,		//  行程ID (string)
+		StartDay,		//  行程开始日期 (string)
+		StartHour,		//  行程开始时间 ()
+		EndDay,		//  行程结束日期 ()
+		EndHour,		//  行程结束时间 ()
+		TimeInterval,		//  行程时间 ()
+		Mileage,		//  公里数 ()
+		OilBills,		//  油费 ()
+		IsFault,		//  行程是否有故障0没有故障码1有故障码 ()
+		StartPosition,		//  行程开始位置 ()
+		EndPosition,		//  行程结束位置 ()
+		PAGENUM,		//  查询总页数 ()
+    }
+
+   // 2、轨迹获取 
+    @SubCmd(0x62)
+    enum guijihuoqu {
+		Longitude,		//  经度 (string)
+		Latitude,		//  纬度 (string)
+    }
+
+   // 3、行程删除 
+    @SubCmd(0x63)
+    enum xingchengshanchu {
+    }
+
+   // 4、轨迹回放[北斗项目] 
+    @SubCmd(0x64)
+    enum guijihuifang {
+		Longitude,		//  经度 (float)
+		Latitude,		//  纬度 (float)
+		子功能号范围：0x71—0x7F,		//   ()
+		子功能号范围：0x81—0x8F,		//   ()
+    }
+
+   // 1、扫描故障码 
+    @SubCmd(0x82)
+    enum saomiaoguzhangma {
+    }
+
+   // 2、扫描驾驶行为 
+    @SubCmd(0x83)
+    enum saomiaojiashixingwei {
+    }
+
+   // 3、扫描油耗情况 
+    @SubCmd(0x84)
+    enum saomiaoyouhaoqingkuang {
+		Category,		//  扫描油耗类别 (string)
+		Desciption,		//  扫描油耗描述 (string)
+    }
+
+   // 4、车辆体检 
+    @SubCmd(0x85)
+    enum cheliangtijian {
+		Code,		//  故障码编号 (string)
+		Name,		//  故障码名称 (string)
+		CategoryId,		//  故障码类别 ()
+		Level,		//  故障码级别 ()
+		Description,		//  故障码描述 ()
+		Category,		//  驾驶行为类别 (string)
+		Desciption,		//  驾驶行为描述 (string)
+		Category,		//  扫描油耗类别 (string)
+		Desciption,		//  扫描油耗描述 (string)
+		子功能号范围：0x91—0x9F,		//   ()
+    }
+
+   // 1、用户反馈 
+    @SubCmd(0x91)
+    enum yonghufankui {
+    }
+
+   // 2、查询4S店信息 
+    @SubCmd(0x93)
+    enum chaxunSdianxinxi {
+		StoreName,		//  4S店名称 (string)
+		StorePhone,		//  电话 (string)
+		StoreAddress,		//  地址 ()
+		SalesmanName,		//  销售员姓名 ()
+		SalesmanPhone,		//  销售员电话 ()
+		Url,		//  车款图片地址 ()
+    }
+
+   // 3、更新4S店信息 
+    @SubCmd(0x94)
+    enum gengxinSdianxinxi {
+    }
+
+   // 4、获取未读信息 
+    @SubCmd(0x95)
+    enum huoquweiduxinxi {
+		ID,		//  消息ID (string)
+		Title,		//  消息标题 (int)
+		Content,		//  消息体 (string)
+		Tag,		//  类型 (sting)
+		StartTime,		//  时间 (int)
+		错误编码表,		//  CLS-CWM-10003 ()
+		13,		//  设备ID无效 ()
+		20,		//  该用户ID不存在 ()
+		23,		//  用户GUID参数格式不对 ()
+		24,		//  车辆GUID参数格式不对 ()
+		34,		//  活动ID不合法 ()
+		41,		//  非法终端ID ()
+    }
+

@@ -1,0 +1,1149 @@
+
+1、用户登陆
+主功能号: 0x11   子功能号:0x11
+请求数据: 
+字段名称	类型	备注
+用户名	string	4-18位字符
+密码	string	6-24位字符、符号、数字组合 
+应用编号	string	
+登陆类型	sting	1 用户登陆   2 用户激活
+推送ID	string	
+系统类型	sting	0. 苹果   1.安卓
+响应数据: 
+字段名称	类型	备注
+State	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	数据体
+
+数据体包含内容: 
+electronic	int	兑换码
+Cashcoupon	int	我的现金券
+Timestamp	int	未用工时券
+Integral	int	我的积分
+userid	string	用户ID
+vehicleid	string	车辆ID
+Terminalid	string	终端ID
+userroot	int	用户权限
+ChatNo		消息ID
+ChatPassword		登陆密码
+ChickName		用户昵称
+
+
+2、用户注册
+主功能号: 0x11   子功能号:0x12
+请求数据: 
+字段名称	类型	备注
+用户名	string	4-18位字符
+密码	string	6-24位字符、符号、数字组合 
+手机号码	string	
+应用编号	string	
+企业ID	string	GUID 
+系统类型	string	 0.苹果    1.安卓
+响应数据: 
+字段名称	类型	备注
+State 	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	NULL
+
+
+3、找回密码
+主功能号: 0x11   子功能号:0x13
+
+请求数据: 
+字段名称	类型	备注
+手机号码	string	
+车牌号		
+车架号(后6位)		
+找回密码类型		1.手机号码找回密码  2.车牌号+车架号找回密码
+响应数据: 
+字段名称	类型	备注
+State 	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	
+数据体包含内容: 
+UserID	string	用户ID
+
+4、保养预约
+主功能号: 0x11   子功能号:0x14
+请求数据: 
+字段名称	类型	备注
+终端ID	string	4-18位字符
+预约类型	string	0 .保养预约    1. 维修预约
+预约时间	string	4-18位字符
+预约车辆	string	GUID
+预约4s店	string	GUID
+响应数据: 
+字段名称	类型	备注
+State 	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	NULL
+
+5、头像设置
+主功能号: 0x11   子功能号:0x15
+请求数据: 
+字段名称	类型	备注
+用户ID	string	4-18位字符
+头像内容	string	 Base64
+响应数据: 
+字段名称	类型	备注
+State 	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	NULL
+
+数据体包含内容: 
+Url	sting	头像访问地址
+
+6、获取保养预约 
+主功能号: 0x11   子功能号:0x16
+请求数据: 
+字段名称	类型	备注
+终端ID	string	4-18位字符
+响应数据: 
+字段名称	类型	备注
+State 	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	数据体
+
+数据体包含内容: 
+FactAppointTime	string	预约时间
+Name	string	顾问名字
+StrAddress	string	预约4s店地址
+AppointStatus	string	预约状态  0.待处理  1.预约中 2.预约成功  3.已到店
+AppointType	int	0 .保养预约    1. 维修预约 
+Longitude	string	经度
+Latitude	string	纬度
+ShopName		预约4s店
+Remark		预约备注
+AppointMax		最大预约期限
+
+7、短信发送
+主功能号: 0x11   子功能号:0x17
+请求数据: 
+字段名称	类型	备注
+手机号码	string	 
+发送数据		
+响应数据: 
+字段名称	类型	备注
+State 	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	NULL
+8、取消保养预约
+主功能号: 0x11   子功能号:0x18
+请求数据: 
+字段名称	类型	备注
+终端ID	string	4-18位字符
+响应数据: 
+字段名称	类型	备注
+State 	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	NULL
+
+9、我的信息
+主功能号: 0x11   子功能号:0x19
+请求数据: 
+字段名称	类型	备注
+终端ID	string	4-18位字符
+响应数据: 
+字段名称	类型	备注
+State 	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	数据体
+
+数据体包含内容: 
+Name	string	用户名
+VehicleName	sting	车款名称
+Grade	string	会员等级
+Points	Int	积分
+Balance	Float	余额
+RepMoney	Int	套餐卡
+Url	Sting	头像图片地址
+CardNo	string	会员卡号
+VIN	string	车架号
+VehicleID	string	车辆id
+VehicleCount	int	车辆数量
+
+
+10、违章查询
+主功能号: 0x11   子功能号:0x1A
+请求数据: 
+字段名称	类型	备注
+终端ID	string	GUID
+车牌号码	string	
+城市代码	string	
+车辆类型	string	02 .小型车   01 . 大型车
+车架号	string	
+发动机号	string	
+响应数据: 
+字段名称	类型	备注
+State 	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	数据体
+
+数据体包含内容: 
+act	string	违章行为
+area	sting	违章地点
+code	string	违章代码
+date	string	违章时间
+jiaokuan	string	缴款状态
+money	int	违章罚款
+Fen	int	违章扣分
+
+11、4S店列表获取
+主功能号: 0x11   子功能号:0x1B
+请求数据: 
+字段名称	类型	备注
+应用ID	string	
+终端ID	string	可为空 不为空时第一条数据为车主默认企业
+响应数据: 
+字段名称	类型	备注
+State 	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	数据体
+
+数据体包含内容: 
+StoreID	string	4S店ID
+StoreName	sting	4S店名称
+StoreAddress	Sting	4S店地址
+Longitude	sting	经度
+Latitude	string	纬度
+
+
+12、检查用户是否存在
+主功能号: 0x11   子功能号:0x1C
+请求数据: 
+字段名称	类型	备注
+手机号码	string	
+应用编号	sting	
+系统类型	string	 0.苹果    1.安卓
+响应数据: 
+字段名称	类型	备注
+State 	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	数据体
+
+数据体包含内容: 
+UserName	string	用户名
+
+13、修改密码
+主功能号: 0x11   子功能号:0x1D
+请求数据: 
+字段名称	类型	备注
+用户ID	string	
+密码	string	
+响应数据: 
+字段名称	类型	备注
+State 	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	NULL
+
+14、个人资料
+主功能号: 0x11   子功能号:0x1E
+请求数据: 
+字段名称	类型	备注
+终端ID	string	
+响应数据: 
+字段名称	类型	备注
+State 	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	数据体
+
+数据体包含内容: 
+Name	string	车主姓名
+UserName	string	用户名
+CardNo	string	会员号码
+Grade	string	会员等级
+Mobile	string	手机号码
+Birthday	String	生日
+Alias	string	昵称
+Address	sting	收货地址 (List)
+CorporationName	sting	默认4s店
+
+
+15、车辆档案
+主功能号: 0x11   子功能号:0x1F
+请求数据: 
+字段名称	类型	备注
+终端ID	string	GUID
+车辆ID	string	GUID
+响应数据: 
+字段名称	类型	备注
+State 	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	数据体
+
+数据体包含内容: 
+Licenseplate	string	车牌号码
+Name	string	车型
+Frame	string	车架号
+Engine	string	发动机号
+CreateTime	string	注册日期
+AuditingExpire	string	下次年检日期
+BuyingDate	String	购车日期
+arrantyDate	string	保质期
+ExtendedDate	sting	延保期
+16、车辆链表
+主功能号: 0x11   子功能号:0x20
+请求数据: 
+字段名称	类型	备注
+终端ID	string	GUID
+响应数据: 
+字段名称	类型	备注
+State 	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	数据体
+
+数据体包含内容: 
+VehicleId	string	车辆ID
+Licenseplate	string	车牌号码
+VehicleType	string	车型
+Status	int	车辆状态
+City	string	车牌号码所在地简称
+Number	string	车牌号码纯数字
+EngineNO	string	发动机号
+VIN	string	车架号
+
+17、兑换券列表
+主功能号: 0x11   子功能号:0x21
+请求数据: 
+字段名称	类型	备注
+终端ID	string	GUID
+每页显示数据条数		
+查询页数		
+响应数据: 
+字段名称	类型	备注
+State 	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	数据体
+
+数据体包含内容: 
+BillsID	string	兑换券ID
+Name	string	兑换券名称
+Code	string	兑换码
+StorName	string	所属企业
+ExpireDate	string	有效期
+PreferentialPrice	string	价值
+IsUsed	int	兑换券状态   0 快到期   1 未兑换  2 已经兑换  3 已经过期  
+CreateTime	string	获券日期
+strAddress	string	4S店地址
+Description	string	使用说明
+Longitude	string	经度
+Latitude	string	纬度
+Total	int	总页数
+18、现金券列表
+主功能号: 0x11   子功能号:0x22
+请求数据: 
+字段名称	类型	备注
+终端ID	string	GUID
+每页显示数据条数		
+查询页数		
+响应数据: 
+字段名称	类型	备注
+State 	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	数据体
+
+数据体包含内容: 
+BillsID	string	兑换券ID
+Name	string	兑换券名称
+Code	string	兑换码
+StorName	string	所属企业
+ExpireDate	string	有效期
+PreferentialPrice	string	价值
+IsUsed	int	兑换券状态   0 快到期   1 未兑换  2 已经兑换  3 已经过期 
+CreateTime	string	获券日期
+strAddress	string	4S店地址
+Description	string	使用说明
+Longitude	string	经度
+Latitude	string	纬度
+Total	int	总页数
+19、个人资料修改
+主功能号: 0x11   子功能号:0x23
+请求数据: 
+字段名称	类型	备注
+终端ID	string	GUID
+修改资料类型		1 .昵称修改  2.生日修改  3.收货地修改址
+数据		
+响应数据: 
+字段名称	类型	备注
+State 	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	NULL
+20、获取聊天客服列表
+主功能号: 0x11   子功能号:0x24
+请求数据: 
+字段名称	类型	备注
+终端ID	string	GUID
+响应数据: 
+字段名称	类型	备注
+State 	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	数据体
+
+数据体包含内容: 
+MessageId	string	消息ID
+Name	string	客服名称
+Url	string	客服图片地址
+IsOnline	int	 0.客服不在线    1.客服在线
+
+21、匿名用户登录
+主功能号: 0x11   子功能号:0x25
+请求数据: 
+字段名称	类型	备注
+手机ID	string	
+应用编号	string	
+推送ID	string	
+系统类型	sting	0. 苹果   1.安卓
+经度		
+纬度		
+响应数据: 
+字段名称	类型	备注
+State 	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	NULL
+数据体包含内容: 
+Terminalid	string	终端ID
+ChatNo		消息ID
+ChatPassword		登陆密码
+ChickName		用户昵称
+CorporationName		默认企业
+
+22、获取消息记录
+主功能号: 0x11   子功能号:0x26
+请求数据: 
+字段名称	类型	备注
+终端ID	string	
+查询时间	string	
+响应数据: 
+字段名称	类型	备注
+State 	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	数据体
+
+数据体包含内容: 
+ID	string	消息ID
+Title	int	消息标题
+Content	string	消息体
+Tag	sting	类型
+StartTime	int	时间
+
+23、获取违章查询城市列表
+主功能号: 0x11   子功能号:0x27
+请求数据: 
+字段名称	类型	备注
+终端ID	string	
+响应数据: 
+字段名称	类型	备注
+State 	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	数据体
+
+数据体包含内容: 
+citycode		城市代码
+cityname		城市名称
+engine		发动机号是否使用
+engineno		发动机号取数据位数
+class		车架号是否使用
+classno		车架号取数据位数
+
+24、删除消息
+主功能号: 0x11   子功能号:0x28
+请求数据: 
+字段名称	类型	备注
+终端ID	string	
+消息ID	string	
+响应数据: 
+字段名称	类型	备注
+State 	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	NULL
+
+
+25、用户退出
+主功能号: 0x11   子功能号:0x29
+请求数据: 
+字段名称	类型	备注
+终端ID	string	
+响应数据: 
+字段名称	类型	备注
+State 	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	NULL
+
+26、检查用户是否登陆
+主功能号: 0x11   子功能号:0x2A
+请求数据: 
+字段名称	类型	备注
+终端ID	string	
+响应数据: 
+字段名称	类型	备注
+State 	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	NULL
+27、车辆添加
+主功能号: 0x11   子功能号:0x2B
+请求数据: 
+字段名称	类型	备注
+终端ID	string	
+车牌号码		
+响应数据: 
+字段名称	类型	备注
+State 	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	NULL
+
+
+28、车机登录
+主功能号: 0x11   子功能号:0x2C
+请求数据: 
+字段名称	类型	备注
+IMEI	string	
+应用编号	string	
+推送ID	string	
+系统类型	sting	0. 苹果   1.安卓
+响应数据: 
+字段名称	类型	备注
+State 	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	NULL
+数据体包含内容: 
+Terminalid	string	终端ID
+
+29、首页数据刷新
+主功能号: 0x11   子功能号:0x2D
+请求数据: 
+字段名称	类型	备注
+终端ID	string	
+响应数据: 
+字段名称	类型	备注
+State	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	数据体
+
+数据体包含内容: 
+Cashcoupon	int	我的现金券
+electronic	int	兑换码
+Integral	int	我的积分
+
+30、默认企业切换
+主功能号: 0x11   子功能号:0x2E
+请求数据: 
+字段名称	类型	备注
+终端ID	string	
+企业ID	sting	
+响应数据: 
+字段名称	类型	备注
+State	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	null
+
+第三部分 用户接口二
+子功能号范围：0x31—0x4F
+1.用户4S店信息
+主功能号: 0x11   子功能号:0x31
+请求数据: 
+字段名称	类型	备注
+终端ID	string	4-18位字符
+响应数据: 
+字段名称	类型	备注
+State 	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	string	数据体
+
+数据体包含内容: 
+字段名称	类型	备注
+Name	string	名称
+ShortName	string	店名
+Telephone	sting	电话
+Address	string	地址
+Introduction	string	简介
+Longitude	string	经度
+Latitude	string	纬度
+PhotoId	string	照片关键字
+PhotoSize	int	照片大小
+PhotoUrl	string	照片链接地址
+
+2.4S店电话
+主功能号: 0x11   子功能号:0x32
+请求数据: 
+字段名称	类型	备注
+终端ID	string	4-18位字符
+电话区位编号	string	4-18位字符  获取所有请使用空字符
+响应数据: 
+字段名称	类型	备注
+State 	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	string	数据体
+
+数据体包含内容: 
+字段名称	类型	备注
+Name	string	名称
+Telephone	sting	电话
+Code	string	电话区位编号
+
+
+
+3.服务类型
+主功能号: 0x11   子功能号:0x33
+请求数据: 
+字段名称	类型	备注
+终端ID	string	4-18位字符
+响应数据: 
+字段名称	类型	备注
+State 	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	string	数据体
+
+数据体包含内容: 
+字段名称	类型	备注
+DepartmentID	string	部门主键
+DepartmentName	sting	部门编号
+DepartmentSortOrder	int	部门排列顺序
+RoleID	string	岗位关键字
+RoleName	string	岗位名称
+RoleNameEx	string	岗位别名
+RoleSortOrder	int	岗位排列顺序
+
+3.个人服务顾问信息(默认）
+主功能号: 0x11   子功能号:0x34
+请求数据: 
+字段名称	类型	备注
+终端ID	string	4-18位字符
+响应数据: 
+字段名称	类型	备注
+State 	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	string	数据体
+
+数据体包含内容: 
+字段名称	类型	备注
+RoleName	string	岗位名称
+EmployeeName	sting	服务顾问名称
+Telephone	string	电话
+Mobile	string	手机
+Description	string	服务顾问描述内容
+Email	string	邮箱
+QQ	string	QQ
+PhotoId	string	照片关键字
+PhotoUrl	string	照片链接地址
+StarLeve	int	星级
+
+
+
+4.服务顾问列表
+主功能号: 0x11   子功能号:0x35
+请求数据: 
+字段名称	类型	备注
+终端ID	string	4-18位字符
+服务类型关键字	string	4-18位字符
+响应数据: 
+字段名称	类型	备注
+State 	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	string	数据体
+数据体包含内容: 
+字段名称	类型	备注
+RoleName	string	岗位名称
+EmployeeName	sting	服务顾问名称
+Telephone	string	电话
+Mobile	string	手机
+Description	string	服务顾问描述内容
+Email	string	邮箱
+QQ	string	QQ
+PhotoId	string	照片关键字
+PhotoUrl	string	照片链接地址
+StarLeve	int	星级
+
+5.紧急救援日志
+主功能号: 0x11   子功能号:0x36
+请求数据: 
+字段名称	类型	备注
+终端ID	string	
+经度	string	
+纬度	string 	
+地址	string 	
+联系电话	string 	
+救援电话	string 	
+响应数据: 
+字段名称	类型	备注
+State 	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	NULL
+
+6.车管家提醒信息
+主功能号: 0x11   子功能号:0x37
+请求数据: 
+字段名称	类型	备注
+终端ID	string	
+响应数据: 
+字段名称	类型	备注
+State 	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	数据体为数组
+dataEx	对象	驾驶证，数据体为对象
+
+data数据体包含内容: 
+字段名称	类型	备注
+NextMileage	double	下次保养里程
+AppointTime	int	下次保养时间戳
+Violate	int	是否有违章 1：有 0：无
+InsuranceEndTime	int	保险到期时间戳
+Auditing	int	下次年检时间戳
+SpanTime	int	保养时间间隔
+
+dataEx数据体包含内容: 
+字段名称	类型	备注
+Name	string	驾驶员
+License	string	驾驶证号
+City	int	所在城市
+StartDate	string	起始日期
+ExpireDate	string	到期日期
+
+7.车管估值计算
+主功能号: 0x11   子功能号:0x38
+请求数据: 
+字段名称	类型	备注
+终端ID	string	
+响应数据: 
+字段名称	类型	备注
+State 	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	数据体为数组
+
+data数据体包含内容: 
+字段名称	类型	备注
+Valuation	double	车辆估值（万元）
+
+8.联系客服电话（忘记密码）
+主功能号: 0x11   子功能号:0x39
+请求数据: 
+字段名称	类型	备注
+应用编号	string	
+响应数据: 
+字段名称	类型	备注
+State 	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	数据体为数组
+
+data数据体包含内容: 
+字段名称	类型	备注
+Telephone	string	电话
+Fax	string	传真
+
+9.保存终端GPS
+主功能号: 0x11   子功能号:0x40
+请求数据: 
+字段名称	类型	备注
+终端ID	string	
+经度	string	
+纬度	string	
+响应数据: 
+字段名称	类型	备注
+State 	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	NULL
+
+10.新增用户地址
+主功能号: 0x11   子功能号:0x41
+请求数据: 
+字段名称	类型	备注
+终端ID/地址ID	string	
+联系人	string	
+手机号码	string	
+所属地区		
+详细地址		
+邮政编码		
+操作类型		1.新增联系地址   2.修改联系地址  3.删除联系地址
+响应数据: 
+字段名称	类型	备注
+State 	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	NULL
+
+
+11.获取地址列表
+主功能号: 0x11   子功能号:0x42
+请求数据: 
+字段名称	类型	备注
+终端ID	string	4-18位字符
+响应数据: 
+字段名称	类型	备注
+State 	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	string	数据体
+数据体包含内容: 
+字段名称	类型	备注
+ID	string	地址ID
+Address	sting	地址
+Linkman	string	联系人
+Telephone	string	手机
+City	string	城市
+PostCode	string	邮编
+IsDefault	int	是否默认
+
+第四部分 用户接口三
+子功能号范围：0x51—0x6F
+1.	启动页广告动画
+功能号：0x11   子功能号：0x51
+请求数据: 
+字段名称	类型	备注
+ID	GUID	16位二进制数， 根据终端id
+广告区域Code	String	 DXTS00050005
+
+响应数据: 
+字段名称	类型	备注
+State	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	数据体
+
+数据体包含内容:
+ID	String	广告附件id
+Type	String	图片附件类型
+Size	Int	广告附件大小
+URL	String	广告图片网址
+AudioUrl	String	广告音频网址
+AudioType	String	图片附件类型
+Title	String	广告标题
+High	Int	广告的高度
+Wide	Int	广告的宽度
+PicTime	Int	广告图片创建时间
+AudioTime	Int	音频文件创建时间
+EfficientTime	Int	生效时间戳
+ExpireTime	Int	失效时间戳
+CurrentTime	Int	系统时间戳
+
+2.	全局广告接口
+功能号：0x11   子功能号：0x52
+请求数据: 
+字段名称	类型	备注
+ID	GUID	16位二进制数，终端id
+广告区域Code	String	 DXTS00050005
+
+响应数据: 
+字段名称	类型	备注
+State	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	数据体
+
+数据体包含内容:
+ID	String	广告附件id
+Type	Int	附件类型
+Size	Int	广告附件大小
+URL	String	广告图片网址
+AudioUrl	String	广告音频网址
+Title	String	广告标题
+High	Int	广告的高度
+Wide	Int	广告的宽度
+EfficientTime	Int	生效时间戳
+ExpireTime	Int	失效时间戳
+CurrentTime	Int	系统时间戳
+
+3.	首页活动图片接口
+功能号：0x11   子功能号：0x53
+请求数据: 
+字段名称	类型	备注
+ID	String	16位二进制数， 终端id
+
+响应数据: 
+字段名称	类型	备注
+State	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	数据体
+
+数据体包含内容:
+ID	String	广告附件id
+URL	String	广告跳转地址
+Size	Int	广告附件大小
+picUrl	String	活动网址
+name	String	广告标题
+High	Int	广告的高度
+Wide	Int	广告的宽度
+Description	String	广告描述
+EfficientTime	Int	生效时间戳
+ExpireTime	Int	失效时间戳
+CurrentTime	Int	系统时间戳
+
+4.	市场活动线上接口
+功能号：0x11   子功能号：0x54
+请求数据: 
+字段名称	类型	备注
+终端ID	GUID	16位二进制数
+
+响应数据: 
+字段名称	类型	备注
+State	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	数据体
+
+数据体包含内容:
+Code	String	活动编号
+Name	String	活动名称
+State	Tinyint	活动状态  取值状态 0：草稿中，1：已发布，2：进行中，3：已结束，4：已下架
+URL	String	活动跳转链接
+picURL	String	活动图片链接
+StartTime	Int	开始时间戳
+EndTime	Int	结束时间戳
+CurrentTime	Int	系统时间戳
+
+5.	市场活动线下接口
+功能号：0x11   子功能号：0x55
+请求数据: 
+字段名称	类型	备注
+终端ID	GUID	16位二进制数
+
+响应数据: 
+字段名称	类型	备注
+State	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	数据体
+
+数据体包含内容:
+ID	String	所属活动ID
+Code	String	活动编号
+Name	String	活动名称
+CategoryCode	String	分类编号
+CategoryName	String	分类名称
+Longitude	DOUBLE	活动经度【保留】
+Latitude	DOUBLE	活动纬度【保留】
+Address	String	活动地址
+url	String	跳转活动url
+Rule	Int	活动规则【保留】
+StartTime	Int	开始时间戳
+EndTime	Int	结束时间戳
+State	Tinyint	活动状态  取值状态 0：草稿中，1：已发布，2：进行中，3：已结束，4：已下架
+CurrentTime	Int	系统时间戳
+6.	市场活动报名接口
+功能号：0x11   子功能号：0x56
+请求数据: 
+字段名称	类型	备注
+终端ID	GUID	16位二进制数
+活动ID	GUID	16位二进制数
+
+响应数据: 
+字段名称	类型	备注
+State	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	数据体
+
+数据体包含内容:
+AttendCode	String	报名确认码【保留】
+AttendStatus	Tinyint	报名状态
+CurrentTime	Int	系统时间戳
+
+7.	帮助信息接口
+功能号：0x11   子功能号：0x57
+请求数据: 
+字段名称	类型	备注
+终端ID	GUID	16位二进制数
+
+响应数据: 
+字段名称	类型	备注
+State	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	数据体
+
+数据体包含内容:
+Code	String	帮助编号
+Title	String	帮助标题
+Content	String	帮助内容
+Description	String	广告描述
+CreateTime	Int	创建时间戳
+CurrentTime	Int	系统时间戳
+
+8.	应用程序升级接口
+功能号：0x11   子功能号：0x58
+请求数据: 
+字段名称	类型	备注
+ID	String	16位二进制数，终端id
+操作系统os	Char	取值范围 0：苹果系统.
+1：安卓系统
+
+响应数据: 
+字段名称	类型	备注
+State	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	数据体
+
+数据体包含内容:
+OS	Tinyint	操作系统
+Version	String	版本
+VersionName	String	版本名
+Size	Int	文件大小
+Level	Tinyint	更新级别
+URL	String	引用地址
+Description	String	广告标题
+CreateTime	Int	创建时间戳
+CurrentTime	Int	系统时间戳
+9.	精品商城接口
+功能号：0x11   子功能号：0x59
+请求数据: 
+字段名称	类型	备注
+终端ID	GUID	16位二进制数
+
+响应数据: 
+字段名称	类型	备注
+State	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	数据体
+
+10.	报名信息查询接口
+功能号：0x11   子功能号：0x60
+请求数据: 
+字段名称	类型	备注
+活动ID	GUID	16位二进制数
+
+响应数据: 
+字段名称	类型	备注
+State	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	数据体
+
+数据体包含内容:
+AttendTime	Int	报名时间戳
+AttendCode	String	报名确认码【保留】
+AttendStatus	Sint	报名状态
+CurrentTime	Int	系统时间戳
+
+11.	市场活动线上线下接口
+功能号：0x11   子功能号：0x61
+请求数据: 
+字段名称	类型	备注
+终端ID	GUID	16位二进制数
+Pagesize	Char	页大小
+PageID	Char	页码
+响应数据: 
+字段名称	类型	备注
+State	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	数据体
+
+数据体包含内容:
+ID	String	所属活动ID
+Code	String	活动编号
+Name	String	活动名称
+CategoryCode	String	分类编号
+CategoryName	String	分类名称
+Longitude	DOUBLE	活动经度【保留】
+Latitude	DOUBLE	活动纬度【保留】
+Address	String	活动地址
+URL	String	活动链接跳转
+Rule	Int	活动规则【保留】
+Title	String	标题
+State	Tinyint	活动状态  取值状态 0：草稿中，1：已发布，2：进行中，3：已结束，4：已下架
+picURL	String	活动链接
+Description	String	描述
+PromotionType	Tinyint	活动类型  取值状态0线下活动，1：线上活动
+StartTime	Int	开始时间戳
+EndTime	Int	结束时间戳
+CurrentTime	Int	系统时间戳
+
+12.	先逛逛活动接口
+功能号：0x11   子功能号：0x62
+请求数据: 
+字段名称	类型	备注
+应用程序Code	String	应用程序code
+Pagesize	Char	页大小
+PageID	Char	页码
+响应数据: 
+字段名称	类型	备注
+State	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	数据体
+
+数据体包含内容:
+ID	String	所属活动ID
+Code	String	活动编号
+Name	String	活动名称
+CategoryCode	String	分类编号
+CategoryName	String	分类名称
+Longitude	DOUBLE	活动经度【保留】
+Latitude	DOUBLE	活动纬度【保留】
+Address	String	活动地址
+url	String	跳转地址
+Rule	Int	活动规则【保留】
+State	Tinyint	活动状态  取值状态 0：草稿中，1：已发布，2：进行中，3：已结束，4：已下架
+picURL	String	活动图片链接
+Description	String	描述
+PromotionType	Tinyint	活动类型  取值状态0线下活动，1：线上活动
+StartTime	Int	开始时间戳
+EndTime	Int	结束时间戳
+CurrentTime	Int	系统时间戳
+
+13.	关于我们
+功能号：0x11   子功能号：0x63
+请求数据: 
+字段名称	类型	备注
+ID	String	终端id
+
+响应数据: 
+字段名称	类型	备注
+State	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	数据体
+
+数据体包含内容:
+Telephone	String	企业电话
+Fax	String	传真
+Longitude	DOUBLE	经度
+Latitude	DOUBLE	活动纬度
+Address	String	地址
+Introduction	String	企业简介
+url	String	Log地址
+Size	Int	图片大小
+Type	Int	图片类型
+CurrentTime	Int	系统时间戳
+

@@ -1,0 +1,68 @@
+
+31、车辆是否违章查询
+主功能号: 0x11   子功能号:0x70
+请求数据: 
+字段名称	类型	备注
+终端ID	string	GUID
+车牌号码	string	
+响应数据: 
+字段名称	类型	备注
+State 	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	list	数据体
+
+数据体包含内容: 
+act	string	违章行为
+area	sting	违章地点
+code	string	违章代码
+date	string	违章时间
+jiaokuan	string	缴款状态
+money	int	违章罚款
+Fen	int	违章扣分
+
+第三部分 用户接口二
+子功能号范围：0x31—0x4F
+1.用户4S店信息
+主功能号: 0x11   子功能号:0x31
+请求数据: 
+字段名称	类型	备注
+终端ID	string	4-18位字符
+响应数据: 
+字段名称	类型	备注
+State 	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	string	数据体
+
+数据体包含内容: 
+字段名称	类型	备注
+Name	string	名称
+ShortName	string	店名
+Telephone	sting	电话
+Address	string	地址
+Introduction	string	简介
+Longitude	string	经度
+Latitude	string	纬度
+PhotoId	string	照片关键字
+PhotoSize	int	照片大小
+PhotoUrl	string	照片链接地址
+
+2.4S店电话
+主功能号: 0x11   子功能号:0x32
+请求数据: 
+字段名称	类型	备注
+终端ID	string	4-18位字符
+电话区位编号	string	4-18位字符  获取所有请使用空字符
+响应数据: 
+字段名称	类型	备注
+State 	int	响应状态(详见 CLS-CWM-10002 )
+Message	sting	状态说明(详见 CLS-CWM-10002 )
+dataCount	int	数据个数
+data	string	数据体
+
+数据体包含内容: 
+字段名称	类型	备注
+Name	string	名称
+Telephone	sting	电话
+Code	string	电话区位编号

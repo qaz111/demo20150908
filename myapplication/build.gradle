@@ -28,5 +28,36 @@ android {
 }
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-        compile 'junit:junit:4.7'
+    compile 'junit:junit:4.7'
+}
+
+//其他和posdevice 类似的处理。来看如何动态生成runtime_config文件
+def  runtime_config_file = 'assets/runtime_config'
+/*
+我们在gradle解析完整个任务之后，找到对应的Task，然后在里边添加一个doFirst Action
+这样能确保编译开始的时候，我们就把runtime_config文件准备好了。
+注意，必须在afterEvaluate里边才能做，否则gradle没有建立完任务有向图，你是找不到
+什么preDebugBuild之类的任务的
+*/
+project.afterEvaluate{
+    //找到preDebugBuild任务，然后添加一个Action
+    tasks.getByName("preDebugBuild"){
+        it.doFirst{
+            println "generate debug configuration for ${project.name}"
+            def configFile = new File(runtime_config_file)
+            configFile.withOutputStream{os->
+                os << "I am Debug\n"  //往配置文件里写 I am Debug
+            }
+        }
+    }
+    //找到preReleaseBuild任务
+    tasks.getByName("preReleaseBuild"){
+        it.doFirst{
+            println "generate release configuration for ${project.name}"
+            def configFile = new File(runtime_config_file)
+            configFile.withOutputStream{os->
+                os << "I am release\n"
+            }
+        }
+    }
 }
